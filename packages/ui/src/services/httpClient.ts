@@ -4,20 +4,14 @@ import { ApiResponse } from "../models";
 export const httpClient = async <T = unknown>(config: {
   url: string;
   request?: RequestInit;
-  isDefaultContentType?: boolean;
 }): Promise<ApiResponse<T | null>> => {
-  const { url, request, isDefaultContentType = true } = config;
+  const { url, request } = config;
   let code = 500;
   let result;
   try {
     const headers: Record<string, any> = {
-      // Authorization: `Bearer ${token}`,
       ...request?.headers
     };
-
-    if (isDefaultContentType) {
-      headers["Content-Type"] = "application/json";
-    }
 
     const res = await fetch(url, {
       ...request,

@@ -13,8 +13,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://designs.hubtel.com/v4/smb///assets/css/main.css"
+          rel="stylesheet"
+        />
+      </head>
       <body>
-        {children}
+        <div className="body-wrapper" id="smb">
+          <div id="internal-backoffice">
+            <h4 className="text-center p-2 text-underline">TASKS</h4>
+            <div className="m-3 vh-height-100" id="scroll">
+              <div>
+                <div className="h-100">{children}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
