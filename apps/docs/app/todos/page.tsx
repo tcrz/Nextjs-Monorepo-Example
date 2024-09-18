@@ -1,5 +1,5 @@
 import React from "react";
-import Tasks from "../components/ui/todos/Tasks";
+import Tasks from "../../components/ui/Tasks";
 
 const page = () => {
   return (
