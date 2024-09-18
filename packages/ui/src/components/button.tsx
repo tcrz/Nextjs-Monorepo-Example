@@ -1,20 +1,26 @@
-"use client";
+import React from "react";
 
-import { ReactNode } from "react";
-
-interface ButtonProps {
-  children: ReactNode;
-  className?: string;
-  appName: string;
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary" | "danger";
+  loading?: boolean;
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
+const buttonStyles = {
+  secondary: "btn-outline-primary",
+  danger: "btn-danger",
+  primary: "btn-primary"
+};
+export const Button: React.FC<Props> = ({
+  variant = "primary",
+  className,
+  loading = false,
+  ...props
+}) => {
+  const baseStyle = buttonStyles[variant] || buttonStyles.primary;
+
   return (
-    <button
-      className={className}
-      onClick={() => alert(`Hello from your ${appName} app!`)}
-    >
-      {children}
+    <button {...props} disabled={loading || props.disabled} className={`btn ${baseStyle} ${className}`}>
+      {props.children}
     </button>
   );
 };

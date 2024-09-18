@@ -10,7 +10,7 @@ export interface Props extends ModalProps {
   showCloseButton?: boolean
 }
 
-const CustomModal: React.FC<Props> = ({
+export const CustomModal: React.FC<Props> = ({
   heading,
   subHeading,
   children,
@@ -80,4 +80,3 @@ const CustomModal: React.FC<Props> = ({
   );
 };
 
-export default CustomModal;
