@@ -22,8 +22,7 @@ export default function RootLayout({
       <body>
         <div className="body-wrapper" id="smb">
           <div id="internal-backoffice">
-            <h4 className="text-center p-2 text-underline">TASKS</h4>
-            <div className="m-3 vh-height-100" id="scroll">
+            <div className="m-3 mt-5 vh-height-100" id="scroll">
               <div>
                 <div className="h-100 mx-5">{children}</div>
               </div>

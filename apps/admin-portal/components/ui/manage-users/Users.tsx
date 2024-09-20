@@ -37,11 +37,19 @@ const Users = () => {
   };
 
   return (
-    <div>
-      <div className="d-flex justify-content-end flex-column flex-lg-row mt-3 mt-lg-0 mb-3">
-        <Button onClick={handleModalOpen}>Add User</Button>
-      </div>
+    <div className="card h-100 p-4 MA-card-shadow">
+      <div className="row justify-content-md-between align-items-md-center flex-column flex-md-row p-3 p-md-4">
+        <div className="col-12 col-md-6 col-lg-6 col-xl-5">
+          <h5 className="fw-bold mb-1">Manage Users</h5>
+          <p className="mb-0 text-black-50">Add or Delete users here</p>
+        </div>
 
+        <div className="col-12 col-md-6 col-lg-6 col-xl-5">
+          <div className="d-flex justify-content-md-end mt-3 mt-md-0">
+            <Button onClick={handleModalOpen}>Add User</Button>
+          </div>
+        </div>
+      </div>
       <Table headers={["Username", "Phone Number", "Actions"]}>
         {users.map((user, index) => (
           <tr key={index}>
@@ -91,7 +99,7 @@ const Users = () => {
               onChange={(e) => setUser({ ...user, username: e.target.value })}
             />
           </div>
-            <div className="mb-3">
+          <div className="mb-3">
             <label htmlFor="user-phone" className="form-label">
               Phone Number
             </label>
@@ -102,10 +110,13 @@ const Users = () => {
               className="form-control"
               value={user.phoneNumber}
               onChange={(e) =>
-              setUser({ ...user, phoneNumber: e.target.value.replace(/\D/g, '') })
+                setUser({
+                  ...user,
+                  phoneNumber: e.target.value.replace(/\D/g, ""),
+                })
               }
             />
-            </div>
+          </div>
           <div className="d-flex justify-content-end">
             <button className="btn btn-primary" onClick={handleAddUser}>
               Save

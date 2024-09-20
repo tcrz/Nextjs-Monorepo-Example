@@ -89,9 +89,21 @@ const Tasks = () => {
   };
 
   return (
-    <div>
+    <div className="card h-100 p-4 MA-card-shadow">
+      <div className="row justify-content-md-between align-items-md-center flex-column flex-md-row p-3 p-md-4">
+        <div className="col-12 col-md-6 col-lg-6 col-xl-5">
+          <h5 className="fw-bold mb-1">Tasks</h5>
+          <p className="mb-0 text-black-50">Manage all tasks here</p>
+        </div>
+
+        <div className="col-12 col-md-6 col-lg-6 col-xl-5">
+          <div className="d-flex justify-content-md-end mt-3 mt-md-0">
+          <Button onClick={handleAddTask}>Add Task</Button>
+          </div>
+        </div>
+      </div>
       <div className="d-flex justify-content-end flex-column flex-lg-row mt-3 mt-lg-0 mb-3">
-        <Button onClick={handleAddTask}>Add Task</Button>
+        
       </div>
 
       <Table headers={["Title", "Description", "Username", "Actions"]}>
